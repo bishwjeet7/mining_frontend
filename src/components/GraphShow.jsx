@@ -8,21 +8,26 @@ const GraphShow = () => {
   const [cable, setCable] = useState('1');
   const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`https://mining-qosx.onrender.com/getData`, {
-        params: {
-          cable_name: `cable ${cable}`,
-          start_time: startTime,
-          end_time: endTime,
-        }
-      });
-      setData(response.data.data); // Updated according to your JSON structure
-      console.log(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+ const fetchData = async () => {
+  const url = `https://mining-qosx.onrender.com/getData`;
+  const params = {
+    cable_name: `cable ${cable}`,
+    start_time: startTime,
+    end_time: endTime,
   };
+
+  console.log("URL:", url);        // Debugging log
+  console.log("Params:", params);  // Debugging log
+
+  try {
+    const response = await axios.get(url, { params });
+    setData(response.data.data);
+    console.log(response.data.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
 
   return (
     <div>
