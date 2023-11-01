@@ -78,6 +78,18 @@ const GraphShow = () => {
           </LineChart>
         </div>
       )}
+
+      <div>
+        {/* Graph for Deformation */}
+          <h2>Deformation</h2>
+          <LineChart width={600} height={300} data={data}>
+            <Line type="monotone" dataKey="deformation" stroke="#82ca9d" />
+            <CartesianGrid stroke="#ccc" />
+            <XAxis dataKey="timestamp" />
+            <YAxis />
+            <Tooltip />
+          </LineChart>
+      </div>
     </div>
   );
 };
