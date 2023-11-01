@@ -18,6 +18,7 @@ const GraphShow = () => {
         }
       });
       setData(response.data.data); // Updated according to your JSON structure
+      console.log(response.data.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
