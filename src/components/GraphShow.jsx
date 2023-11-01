@@ -55,7 +55,7 @@ const GraphShow = () => {
 
   return (
     <div style={containerStyle}>
-      <h1>GraphShow</h1>
+      <h1>GraphShow</h1><br/>
       <div style={formStyle}>
         <label>
           Start Time:
