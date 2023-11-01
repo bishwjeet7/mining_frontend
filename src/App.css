@@ -3,24 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  height: 100vh;
+  width: 100vw;
+}
 
 h1{
   text-align: center;
   /* margin-top: 5%; */
 }
-.imgBox{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30%;
+/* .headingBox{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.nclLogo{
+  justify-content: end;
 }
 img{
-  width: 35%;
-}
+  width: 25%;
+} */
 
-.details{
+/* .details{
   margin-top: 100%;
-}
+} */
 
 .homePageLogo{
   width: 100%;
@@ -37,3 +42,56 @@ img{
   /* opacity: 0.6; */
 }
 
+
+/* Container holding the images and heading */
+.headingBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Images styling */
+.headingBox img {
+  width: 100px; /* Adjust as per your needs */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Heading styling */
+.headingBox h1 {
+  flex-grow: 2;
+  text-align: center;
+}
+
+/* Responsive image and heading styling for mobile devices */
+@media (max-width: 600px) {
+  .headingBox {
+    /* flex-direction: column; */
+    align-items: center;
+  }
+
+  .headingBox img {
+    width: 50px; /* Adjust size for mobile */
+    margin: 5px 0; /* Add some margin between images and text */
+  }
+
+  .headingBox h1 {
+    flex-grow: 0; /* Disable growing in mobile view */
+  }
+}
+
+/* Container for the project details */
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  float: left;
+  margin-top: 70vh; /* Spacing from the headingBox */
+}
+
+/* Responsive details alignment for mobile devices */
+@media (max-width: 600px) {
+  .details {
+    align-items: flex-start;
+    margin-top: 80vh; /* Adjust spacing for mobile */
+  }
+}
