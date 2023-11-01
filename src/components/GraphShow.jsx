@@ -34,22 +34,23 @@ const GraphShow = () => {
       <h1>GraphShow</h1>
 
       <label>
-        Start Time:
-        <input
-          type="datetime-local"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-      </label>
+  Start Time:
+  <input
+    type="datetime-local"
+    value={new Date(startTime).toISOString().slice(0, 16)}
+    onChange={(e) => setStartTime(new Date(e.target.value).toISOString())}
+  />
+</label>
 
-      <label>
-        End Time:
-        <input
-          type="datetime-local"
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-        />
-      </label>
+<label>
+  End Time:
+  <input
+    type="datetime-local"
+    value={new Date(endTime).toISOString().slice(0, 16)}
+    onChange={(e) => setEndTime(new Date(e.target.value).toISOString())}
+  />
+</label>
+
 
       <label>
         Cable:
