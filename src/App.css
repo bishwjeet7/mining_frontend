@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 h1{
   text-align: center;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 .imgBox{
   display: flex;
@@ -18,5 +19,21 @@ img{
 }
 
 .details{
-  
+  margin-top: 100%;
 }
+
+.homePageLogo{
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  /* opacity: 0.6; */
+}
+
