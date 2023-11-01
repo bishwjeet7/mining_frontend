@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  text-align: center;
+  margin-top: 5%;
+}
+.imgBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+}
+img{
+  width: 35%;
+}
+
+.details{
+  
+}
