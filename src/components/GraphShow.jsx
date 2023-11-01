@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 const GraphShow = () => {
   const [startTime, setStartTime] = useState('2023-07-16T21:35:00.000Z');
@@ -9,23 +9,7 @@ const GraphShow = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const url = `https://mining-qosx.onrender.com/getData`;
-    const params = {
-      cable_name: `cable ${cable}`,
-      start_time: startTime,
-      end_time: endTime,
-    };
-
-    console.log("URL:", url);        // Debugging log
-    console.log("Params:", params);  // Debugging log
-
-    try {
-      const response = await axios.get(url, { params });
-      setData(response.data.data);
-      console.log(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+    // ... (same as above)
   };
 
   const containerStyle = {
@@ -45,6 +29,7 @@ const GraphShow = () => {
 
   const chartContainerStyle = {
     margin: '20px 0',
+    width: '100%',
     background: '#fff',
     borderRadius: '8px',
     padding: '20px',
@@ -53,7 +38,7 @@ const GraphShow = () => {
 
   return (
     <div style={containerStyle}>
-      <h1>GraphShow</h1><br/>
+      <h1>GraphShow</h1>
       <div style={formStyle}>
         <label>
           Start Time:
@@ -87,29 +72,25 @@ const GraphShow = () => {
       {data.length > 0 && (
         <div style={chartContainerStyle}>
           <h2>Graph Data</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={data}>
-              <Line type="monotone" dataKey="inverse_velocity" stroke="#8884d8" />
-              <CartesianGrid stroke="#ccc" />
-              <XAxis dataKey="timestamp" />
-              <YAxis />
-              <Tooltip />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      )}
-
-      <div style={chartContainerStyle}>
-        <h2>Deformation</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data}>
-            <Line type="monotone" dataKey="deformation" stroke="#82ca9d" />
+          <LineChart width={600} height={300} data={data}>
+            <Line type="monotone" dataKey="inverse_velocity" stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" />
             <XAxis dataKey="timestamp" />
             <YAxis />
             <Tooltip />
           </LineChart>
-        </ResponsiveContainer>
+        </div>
+      )}
+
+      <div style={chartContainerStyle}>
+        <h2>Deformation</h2>
+        <LineChart width={600} height={300} data={data}>
+          <Line type="monotone" dataKey="deformation" stroke="#82ca9d" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="timestamp" />
+          <YAxis />
+          <Tooltip />
+        </LineChart>
       </div>
     </div>
   );
