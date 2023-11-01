@@ -20,11 +20,11 @@ const HomePage = () => {
 
   return (
     <div className='homePageLogo' style={{ backgroundImage: `url(${homepage_logo})` }}>
-  <h1>TDR Application</h1>
-  <div className='imgBox'>
-    <img src={iit} alt='iit'></img>
-    <img src={ncl} alt='ncl'></img>
-  </div>
+  <div className='headingBox'>
+        <img src={iit} alt='iit'></img>
+        <h1>TDR Application</h1>
+        <img className='nclLogo' src={ncl} alt='ncl'></img>
+      </div>
   <div className='details'>
     <h3>Project PI - Prof Sk Sharma</h3>
     <h3>Research Fellow - Kadam Mishra</h3>
