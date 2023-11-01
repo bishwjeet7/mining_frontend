@@ -92,6 +92,6 @@ img{
 @media (max-width: 600px) {
   .details {
     align-items: flex-start;
-    margin-top: 80vh; /* Adjust spacing for mobile */
+    margin-top: 70vh; /* Adjust spacing for mobile */
   }
 }
