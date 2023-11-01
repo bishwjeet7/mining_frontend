@@ -9,8 +9,24 @@ const GraphShow = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    // ... (same as above)
+  const url = `https://mining-qosx.onrender.com/getData`;
+  const params = {
+    cable_name: `cable ${cable}`,
+    start_time: startTime,
+    end_time: endTime,
   };
+
+  console.log("URL:", url);        // Debugging log
+  console.log("Params:", params);  // Debugging log
+
+  try {
+    const response = await axios.get(url, { params });
+    setData(response.data.data);
+    console.log(response.data.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 
   const containerStyle = {
     display: 'flex',
