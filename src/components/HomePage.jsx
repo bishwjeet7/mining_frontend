@@ -13,7 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldRedirect(true);
-    }, 500000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
